@@ -20,9 +20,9 @@ npm install
 npm run dev
 ```
 
-## Build
+## Build to ./release/index.html
 ```powershell
-npm run build
+npm run release
 ```
 
 
