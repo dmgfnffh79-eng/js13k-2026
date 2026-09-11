@@ -1,19 +1,38 @@
-# 独角兽 · 云上彩虹
+# Thunder Unicorn 13 — NPM source split
 
-这是原单文件 HTML 的第一阶段模块化拆分版本。
+Mechanically split from the supplied single-file HTML into an NPM/Vite source tree.
 
-目标：先把 HTML / CSS / JavaScript 按职责拆开，尽量不改变原玩法。
+## Environment
+- Node.js 18.20.8 compatible
+- Vite 6.4.3
 
-结构：
-- `index.html`：页面骨架
-- `src/style.css`：原 CSS
-- `src/core.js`：Canvas、尺寸、工具函数
-- `src/state.js`：游戏状态
-- `src/audio/`：音频系统
-- `src/game/`：玩家、云、碰撞、天气、闪电等
-- `src/render.js`：绘制
-- `src/input/`：输入
-- `src/ui/`：Debug/UI
-- `src/main.js`：启动与主循环
+## Run
+```powershell
+npm install
+npm run dev
+```
 
-下一阶段再做逻辑重构、类型化、资源抽离和 js13k 压缩。
+## Build
+```powershell
+npm run build
+```
+
+## Structure
+- `index.html` — page/UI shell
+- `src/style.css` — original CSS
+- `src/core.js` — canvas, resize, constants, utilities
+- `src/state.js` — game state and object arrays
+- `src/game/entities.js` — cloud/unicorn/background generation
+- `src/game/weapon.js` — charging, firing, arrows
+- `src/game/collision.js` — collision and rescue rules
+- `src/game/weather.js` — rain/rainbow
+- `src/game/effects.js` — particles/impact effects
+- `src/game/update.js` — moving objects and assistance timer
+- `src/render.js` — canvas rendering
+- `src/input.js` — pointer/touch/keyboard input
+- `src/audio/audio.js` — thunder sound
+- `src/ui/ui.js` — HUD/start/restart
+- `src/ui/debug.js` — debug switches
+- `src/main.js` — initialization and main loop
+
+This stage intentionally avoids gameplay redesign or optimization; the goal is source separation first.
