@@ -17,12 +17,7 @@ when 7 color all get than you win !
 ## Run
 ```powershell
 npm install
-npm run dev
-```
-
-## Build to ./release/index.html
-```powershell
-npm run release
+npm run build
 ```
 
 
